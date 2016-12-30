@@ -1,7 +1,7 @@
 {
   "name": "atom-react-intl-snippets",
   "version": "0.7.0",
-  "description": "React Intl (`react-intl`) snippets",
+  "description": "React Intl (react-intl) snippets",
   "engines": {
     "atom": "*"
   },
