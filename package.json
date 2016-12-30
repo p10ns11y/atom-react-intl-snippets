@@ -17,6 +17,9 @@
     "url": "https://github.com/p10ns11y/atom-react-intl-snippets",
     "type": "git"
   },
+  "bugs": {
+    "url": "https://github.com/p10ns11y/atom-react-intl-snippets/issues"
+  },
   "author": "Peramanathan Sathyamoorthy",
-  "license": "MIT"
+  "license": "MIT",
 }
