@@ -12,7 +12,7 @@
     "babel",
     "snippets"
   ],
-  "main": "./snippets/react-intl.cson",
+  "main": "./snippets",
   "repository": {
     "url": "https://github.com/p10ns11y/atom-react-intl-snippets",
     "type": "git"
