@@ -1,39 +1,157 @@
 '.source.js.jsx':
-  'React-Intl import FormattedMessage':
+  'IntlProvider':
+    'prefix': 'rip'
+    'body': """
+      <IntlProvider locale={$1} messages={$2}>
+        ${3:APP}
+      </IntlProvider>
+    """
+    'leftLabel': 'IntlProvider'
+    'description': 'IntlProvider i18n context wrapper for app'
+    'descriptionMoreURL': 'https://github.com/yahoo/react-intl/wiki/Components#intlprovider'
+
+  'init setup':
+    'prefix': 'rial'
+    'body': """
+      import {addLocaleData} from 'react-intl';
+      import ${1:sv}LocaleData from 'react-intl/locale-data/${1:sv}';
+
+      addLocaleData($1LocaleData);
+    """
+    'leftLabel': 'addLocaleData'
+    'description': 'Init addLocaleData setup'
+    'descriptionMoreURL': 'https://github.com/yahoo/react-intl/wiki/API#addlocaledata'
+
+  'import locale react-intl data':
+    'prefix': 'rild'
+    'body': "import $1LocaleData from 'react-intl/locale-data/${1:sv}';"
+    'leftLabel': 'addLocaleData'
+    'description': 'import LocaleData from react-intl/locale-data'
+
+  'w/o defaultMessages':
+    'prefix': 'rifm'
+    'body': """
+      <FormattedMessage
+        id='${1:requiredProp}'
+        description='${3:optionalProp}'
+        defaultMessage='${2:requiredProp}'
+        values={{
+          ${4:key:'value'}
+        }}
+      />
+    """
+    'leftLabel': 'FormattedMessage'
+    'description': 'FormattedMessage without separate defineMessages'
+    'descriptionMoreURL': 'https://github.com/yahoo/react-intl/wiki/Components#formattedmessage'
+
+  'callback function-as-react-child':
+    'prefix': 'rifmcb'
+    'body': """
+      <FormattedMessage {...descriptor} >
+        {
+          formattedMessage => (
+            <${1:reactElementOrTagName}>
+              {formattedMessage}
+            </$1>
+          )
+        }
+      </FormattedMessage>
+    """
+    'leftLabel': '🎩🔥FormattedMessage'
+    'description': 'FormattedMessage with function-as-react-child pattern'
+    'descriptionMoreURL': 'https://github.com/yahoo/react-intl/blob/master/test/unit/components/message.js#L169'
+
+  'for defaultMessages':
+    'prefix': 'rifmdm'
+    'body': '<FormattedMessage {...${1:descriptor}} />'
+    'leftLabel': 'FormattedMessage'
+    'description': 'FormattedMessage defineMessages with default span tagName'
+    'descriptionMoreURL': 'https://github.com/yahoo/react-intl/wiki/Components#formattedmessage'
+
+  'with tagName w/o defaultMessage':
+    'prefix': 'rifmt'
+    'body': """
+      <FormattedMessage
+        tagName="$5"
+        id='${1:requiredProp}'
+        description='${3:optionalProp}'
+        defaultMessage='${2:requiredProp}'
+        values={{
+          ${4:key:'value'}
+        }}
+      />
+    """
+    'leftLabel': 'FormattedMessage'
+    'description': 'FormattedMessage w/o separate defineMessages with tagName'
+    'descriptionMoreURL': 'https://github.com/yahoo/react-intl/wiki/Components#formattedmessage'
+
+  'with tagName for defineMessages':
+    'prefix': 'rifmdmt'
+    'body': '<FormattedMessage tagName="$2" {...${1:descriptor}} />'
+    'leftLabel': '🔥FormattedMessage'
+    'description': 'FormattedMessage with tagName where component use messages from defineMessages'
+    'descriptionMoreURL': 'https://github.com/yahoo/react-intl/wiki/Components#formattedmessage'
+
+  'HOC-wrapper for React.Component':
+    'prefix': 'rinjrc'
+    'body': """
+      import React, { PropTypes } from 'react';
+      import { injectIntl, intlShape } from 'react-intl';
+
+      class ${1:intlInjectComponent} extends React.Component {
+        /* Life cycle methods */
+
+        render() {
+          const { intl } = this.props;
+
+          return (
+            <div>
+              {intl.formatMessage({id:'', defaultMessage: ''})}
+              {intl.formatMessage(descriptor)}
+            </div>
+          );
+        }
+      }
+
+      $1.propTypes = {
+        intl: intlShape.isRequired,
+      }
+
+      export default injectIntl($1);
+    """
+    'leftLabel': '♨️injectInl'
+    'description': 'injectInl HOC wrapper for React.Component that inject props.intl'
+    'descriptionMoreURL': 'https://github.com/yahoo/react-intl/wiki/API#injectintl'
+
+  'simple import':
     'prefix': 'rif'
     'body': """
       import { FormattedMessage } from 'react-intl';
     """
-  'React-Intl import injectIntl':
-    'prefix': 'riin'
+    'leftLabel': 'FormattedMessage'
+    'description': 'FormattedMessage simple import'
+
+  'simple import injectIntl':
+    'prefix': 'rinj'
     'body': """
       import { injectIntl, intlShape } from 'react-intl';
     """
-  'React-Intl defineMessages':
+    'leftLabel': 'injectIntl'
+    'description': 'injectIntl simple import'
+
+  'hooker for babel-plugin-react-intl':
     'prefix': 'ridm'
     'body': """
       import { defineMessages } from 'react-intl';
 
       export default defineMessages({
-        componentKey: {
-          id: '${1:project.pages.components.prefix}',
+        descriptor: {
+          id: '${1:descriptorId}',
           defaultMessage: '',
         },
-        componentKey: {
-          id: '${1:project.pages.components.prefix}',
-          defaultMessage: '',
-        },
-        componentKey: {
-          id: '${1:project.pages.components.prefix}',
-          defaultMessage: '',
-        },
-        componentKey: {
-          id: '${1:project.pages.components.prefix}',
-          defaultMessage: '',
-        },
-        componentKey: {
-          id: '${1:project.pages.components.prefix}',
-          defaultMessage: '',
-        },
+        ...more
       });
     """
+    'leftLabel': '↪️ defineMessages'
+    'description': 'A hook for babel-plugin-react-intl to extract messages from source files'
+    'descriptionMoreURL': 'https://github.com/yahoo/react-intl/wiki/API#definemessages'
