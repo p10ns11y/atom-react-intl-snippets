@@ -109,3 +109,5 @@ Provides essential snippets for `react-intl`
     - `dm`: for defaultMessages (`rifmdm`)
       - `t` : with `tagName` prop (`rifmdmt`)
     - `t`: with `tagName` prop (`rifmt`)
+  - `nj`: injectIntl import (`rinj`)
+    - `rc`: injectIntl wrapped React.Component (`rinjrc`)
