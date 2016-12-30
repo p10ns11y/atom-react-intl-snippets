@@ -1,0 +1,19 @@
+{
+  "name": "atom-react-intl-snippets",
+  "version": "0.1.0",
+  "description": "React Intl (`react-intl`) snippets",
+  "keywords": [
+    "react",
+    "react-intl",
+    "ES6",
+    "babel",
+    "snippets"
+  ],
+  "main": "snippets/react-intl.cson",
+  "repository": {
+    "url": "https://github.com/p10ns11y/atom-react-intl-snippets",
+    "type": "git"
+  },
+  "author": "Peramanathan Sathyamoorthy",
+  "license": "MIT"
+}

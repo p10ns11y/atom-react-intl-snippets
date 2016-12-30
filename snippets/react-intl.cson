@@ -1,0 +1,39 @@
+'.source.js.jsx':
+  'React-Intl import FormattedMessage':
+    'prefix': 'rif'
+    'body': """
+      import { FormattedMessage } from 'react-intl';
+    """
+  'React-Intl import injectIntl':
+    'prefix': 'riin'
+    'body': """
+      import { injectIntl, intlShape } from 'react-intl';
+    """
+  'React-Intl defineMessages':
+    'prefix': 'ridm'
+    'body': """
+      import { defineMessages } from 'react-intl';
+
+      export default defineMessages({
+        componentKey: {
+          id: '${1:project.pages.components.prefix}',
+          defaultMessage: '',
+        },
+        componentKey: {
+          id: '${1:project.pages.components.prefix}',
+          defaultMessage: '',
+        },
+        componentKey: {
+          id: '${1:project.pages.components.prefix}',
+          defaultMessage: '',
+        },
+        componentKey: {
+          id: '${1:project.pages.components.prefix}',
+          defaultMessage: '',
+        },
+        componentKey: {
+          id: '${1:project.pages.components.prefix}',
+          defaultMessage: '',
+        },
+      });
+    """
